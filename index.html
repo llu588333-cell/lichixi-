@@ -362,7 +362,6 @@ a:focus-visible,button:focus-visible{outline:4px solid var(--sakura);outline-off
     <li><a href="#persona">STATS</a></li>
     <li><a href="#taste">TASTE</a></li>
     <li><a href="#daily">QUEST</a></li>
-    <li><a href="#gallery">ALBUM</a></li>
   </ul>
   <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
@@ -590,49 +589,6 @@ a:focus-visible,button:focus-visible{outline:4px solid var(--sakura);outline-off
   </div>
 </div>
 
-<!-- ═══════ Gallery + Photo Reveal Game ═══════ -->
-<section class="sec" id="gallery">
-  <div class="wrap-wide">
-    <div class="reveal">
-      <p class="sec-eyebrow">ALBUM</p>
-      <h2 class="sec-title" style="margin-bottom:0">相册</h2>
-      <div class="sec-rule" style="margin-top:0.3rem"></div>
-    </div>
-
-    <div class="g-game-panel reveal" id="galleryGame">
-      <span class="g-game-counter" id="gCounter">已显影 0 / 11</span>
-      <div class="g-game-bar-wrap"><span class="g-game-bar" id="gBar" style="width:0%"></span></div>
-      <button class="g-game-reset" id="gReset">↺ 重来</button>
-    </div>
-    <p class="g-game-hint reveal">📸 点击照片来「显影」它们吧 · 显影后双击可放大查看</p>
-
-    <div class="g-cat reveal"><h3>暖棕调 · Warm Earth</h3>
-      <div class="g-grid">
-        <div class="g-item" data-photo="暖棕1"><div class="g-film"></div><img src="images/5bf4bea66357c01ff1b98de40fab7aaf.jpg" alt="暖调" loading="lazy"></div>
-        <div class="g-item land wide" data-photo="暖棕2"><div class="g-film"></div><img src="images/a3345e6df90394350b1912597f31ad9a.jpg" alt="暖调" loading="lazy"></div>
-        <div class="g-item" data-photo="暖棕3"><div class="g-film"></div><img src="images/a41f6f424f2445a55194caf8c9906a03.png" alt="暖调" loading="lazy"></div>
-        <div class="g-item land" data-photo="暖棕4"><div class="g-film"></div><img src="images/4e198661e0460d9599a79662f17cbcf4.jpg" alt="暖调" loading="lazy"></div>
-        <div class="g-item land" data-photo="暖棕5"><div class="g-film"></div><img src="images/e2f3fe22cd40ff7295fcc9965614e665.jpg" alt="暖调" loading="lazy"></div>
-      </div>
-    </div>
-    <div class="g-cat reveal"><h3>蓝灰调 · Cool Haze</h3>
-      <div class="g-grid">
-        <div class="g-item land wide" data-photo="蓝灰1"><div class="g-film"></div><img src="images/2ad96ab3a0bdbad3a37b7fcff4a08293.jpg" alt="蓝调" loading="lazy"></div>
-        <div class="g-item land" data-photo="蓝灰2"><div class="g-film"></div><img src="images/395c6eb7244d974fc237411e253a48a4.jpg" alt="蓝调" loading="lazy"></div>
-        <div class="g-item land" data-photo="蓝灰3"><div class="g-film"></div><img src="images/695a98d1e0b605774379e09f03610599.jpg" alt="蓝调" loading="lazy"></div>
-      </div>
-    </div>
-    <div class="g-cat reveal"><h3>中性调 · Soft Stone</h3>
-      <div class="g-grid">
-        <div class="g-item" data-photo="中性1"><div class="g-film"></div><img src="images/17d3a523191dce34358866c88a01e577.jpg" alt="中性调" loading="lazy"></div>
-        <div class="g-item land wide" data-photo="中性2"><div class="g-film"></div><img src="images/b9e95a14dadd278703512514fbafeb67.jpg" alt="中性调" loading="lazy"></div>
-        <div class="g-item" data-photo="中性3"><div class="g-film"></div><img src="images/e2d22eae53eb25d54eb339b34876baa2.jpg" alt="中性调" loading="lazy"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="px-div"><span></span><i class="sm"></i><i></i><i class="sm rose"></i><span></span></div>
 
 <!-- ═══════ Footer ═══════ -->
 <footer class="footer">
@@ -671,13 +627,6 @@ a:focus-visible,button:focus-visible{outline:4px solid var(--sakura);outline-off
     <rect x="8" y="16" width="3" height="2" fill="#FDE4E9"/>
     <rect x="21" y="15" width="3" height="2" fill="#FDE4E9"/>
   </svg>
-</div>
-
-<div class="lb" id="lightbox">
-  <button class="lb-close" id="lbClose">&times;</button>
-  <button class="lb-nav lb-prev" id="lbPrev">&#10094;</button>
-  <button class="lb-nav lb-next" id="lbNext">&#10095;</button>
-  <img src="" alt="" id="lbImg">
 </div>
 
 <script>
@@ -747,12 +696,12 @@ a:focus-visible,button:focus-visible{outline:4px solid var(--sakura);outline-off
   }
 
   // ═══════ Global Progress ═══════
-  var globalTotal=41; // 18 food + 12 persona + 11 gallery
+  var globalTotal=30; // 18 food + 12 persona
   var globalDone=0;
   var gProgressFill=document.querySelector('.global-progress-fill');
   var gProgressLabel=document.querySelector('.global-progress-label');
   function updateGlobalProgress(){
-    globalDone=(eatenLiked)+(pAwake)+(gRevealed);
+    globalDone=(eatenLiked)+(pAwake);
     var pct=Math.round(globalDone/globalTotal*100);
     if(gProgressFill)gProgressFill.style.width=pct+'%';
     if(gProgressLabel){gProgressLabel.textContent='总进度 '+pct+'% ('+globalDone+'/'+globalTotal+')';gProgressLabel.classList.add('show');}
@@ -951,51 +900,6 @@ a:focus-visible,button:focus-visible{outline:4px solid var(--sakura);outline-off
     if(foodBigScore)foodBigScore.classList.remove('negative');
   });
 
-  // ═══════ Gallery Reveal Game ═══════
-  var gItems=document.querySelectorAll('.g-item[data-photo]');
-  var gRevealed=0,totalPhotos=gItems.length;
-  var gCounter=$('gCounter'),gBar=$('gBar'),gReset=$('gReset');
-
-  function updateGalleryUI(){
-    gCounter.textContent='已显影 '+gRevealed+' / '+totalPhotos;
-    gBar.style.width=Math.round(gRevealed/totalPhotos*100)+'%';
-    if(gRevealed===totalPhotos){
-      var r=gBar.getBoundingClientRect();
-      sparkAt(r.left+r.width/2,r.top,24);
-      gCounter.textContent='📸 全部显影!! 双击照片看大图';
-    }
-  }
-
-  gItems.forEach(function(item){
-    item.addEventListener('click',function(e){
-      var film=item.querySelector('.g-film');
-      if(film&&!film.classList.contains('off')){
-        film.classList.add('off');item.classList.add('revealed');
-        gRevealed++;updateGalleryUI();updateGlobalProgress();
-        sparkAt(e.clientX,e.clientY,8);
-        if(gRevealed===totalPhotos){
-          setTimeout(function(){sparkAt(item.getBoundingClientRect().left+item.offsetWidth/2,item.getBoundingClientRect().top+item.offsetHeight/2,24);},400);
-        }
-      }
-      if(!film||film.classList.contains('off')){
-        if(item._wasRevealed||!film||film.classList.contains('off')){
-          var allImgs=Array.from(document.querySelectorAll('.g-item img'));
-          var idx=allImgs.indexOf(item.querySelector('img'));
-          if(idx>=0)openLightbox(idx);
-        }
-        item._wasRevealed=true;
-      }
-    });
-  });
-
-  if(gReset)gReset.addEventListener('click',function(){
-    gRevealed=0;gItems.forEach(function(item){
-      var film=item.querySelector('.g-film');if(film)film.classList.remove('off');
-      item.classList.remove('revealed');item._wasRevealed=false;
-    });
-    updateGalleryUI();updateGlobalProgress();
-  });
-
   // ═══════ Persona Awakening Game ═══════
   var pTraits=document.querySelectorAll('.p-trait.locked');
   var pAwake=0,totalTraits=pTraits.length;
@@ -1069,28 +973,6 @@ a:focus-visible,button:focus-visible{outline:4px solid var(--sakura);outline-off
     updatePersonaUI();setPAvatar('7',34,16,3,'0.2');
     pMsg.textContent='👆 点击下面的特性来「觉醒」它们';updateGlobalProgress();
   });
-
-  // ═══════ Lightbox ═══════
-  var lb=$('lightbox'),lbImg=$('lbImg'),allLbImgs=[],lbIdx=0;
-  allLbImgs=Array.from(document.querySelectorAll('.g-item img'));
-  function openLightbox(idx){
-    lbIdx=idx;lbImg.src=allLbImgs[lbIdx].src;lb.classList.add('open');body.style.overflow='hidden';
-  }
-  if(lb&&lbImg&&allLbImgs.length){
-    allLbImgs.forEach(function(img,i){
-      img.addEventListener('dblclick',function(e){e.stopPropagation();openLightbox(i);});
-    });
-    $('lbClose').addEventListener('click',function(){lb.classList.remove('open');body.style.overflow='';});
-    $('lbPrev').addEventListener('click',function(){lbIdx=(lbIdx-1+allLbImgs.length)%allLbImgs.length;lbImg.src=allLbImgs[lbIdx].src;});
-    $('lbNext').addEventListener('click',function(){lbIdx=(lbIdx+1)%allLbImgs.length;lbImg.src=allLbImgs[lbIdx].src;});
-    lb.addEventListener('click',function(e){if(e.target===lb){lb.classList.remove('open');body.style.overflow='';}});
-    document.addEventListener('keydown',function(e){
-      if(!lb.classList.contains('open'))return;
-      if(e.key==='Escape'){lb.classList.remove('open');body.style.overflow='';}
-      if(e.key==='ArrowLeft'){lbIdx=(lbIdx-1+allLbImgs.length)%allLbImgs.length;lbImg.src=allLbImgs[lbIdx].src;}
-      if(e.key==='ArrowRight'){lbIdx=(lbIdx+1)%allLbImgs.length;lbImg.src=allLbImgs[lbIdx].src;}
-    });
-  }
 
   // ═══════ Constellation Discovery ═══════
   var discovered={};
